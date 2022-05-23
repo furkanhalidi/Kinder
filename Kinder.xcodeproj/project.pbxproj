@@ -44,6 +44,8 @@
 		1F9CA75D27732BF400E3162E /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CA75C27732BF400E3162E /* MealViewController.swift */; };
 		1F9CA75F2773683A00E3162E /* MedicineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CA75E2773683A00E3162E /* MedicineViewController.swift */; };
 		1F9CA761277372CB00E3162E /* ViewControllerGunsonu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CA760277372CB00E3162E /* ViewControllerGunsonu.swift */; };
+		90D21ABE283C3E9C0025E0A0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D21ABD283C3E9C0025E0A0 /* ProfileViewController.swift */; };
+		90D21AC0283C40FA0025E0A0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D21ABF283C40FA0025E0A0 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		1F9CA75C27732BF400E3162E /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
 		1F9CA75E2773683A00E3162E /* MedicineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineViewController.swift; sourceTree = "<group>"; };
 		1F9CA760277372CB00E3162E /* ViewControllerGunsonu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerGunsonu.swift; sourceTree = "<group>"; };
+		90D21ABD283C3E9C0025E0A0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		90D21ABF283C40FA0025E0A0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,8 @@
 				070AF20128397AAE00441A5A /* DuesViewController.swift */,
 				1F9CA75C27732BF400E3162E /* MealViewController.swift */,
 				1F9CA75E2773683A00E3162E /* MedicineViewController.swift */,
+				90D21ABD283C3E9C0025E0A0 /* ProfileViewController.swift */,
+				90D21ABF283C40FA0025E0A0 /* SettingsViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 				1F9CA75F2773683A00E3162E /* MedicineViewController.swift in Sources */,
 				070AF20A28397D0700441A5A /* Dues.swift in Sources */,
 				070AF21A283A8ED500441A5A /* BodyIndex.swift in Sources */,
+				90D21ABE283C3E9C0025E0A0 /* ProfileViewController.swift in Sources */,
 				07C63F0E283ACD9400407D15 /* BodyTempature.swift in Sources */,
 				07C63F1F283AE4CA00407D15 /* AddActivityModel.swift in Sources */,
 				07C63F1A283ADE2F00407D15 /* ActivityCell.swift in Sources */,
@@ -347,6 +354,7 @@
 				1F0D6A99275CD57A00AE4D77 /* ViewController.swift in Sources */,
 				070AF215283A8AF000441A5A /* Meal.swift in Sources */,
 				07C63F16283AD1EE00407D15 /* ActivityPermissionViewController.swift in Sources */,
+				90D21AC0283C40FA0025E0A0 /* SettingsViewController.swift in Sources */,
 				070AF211283987CF00441A5A /* Date+Extension.swift in Sources */,
 				1F9CA761277372CB00E3162E /* ViewControllerGunsonu.swift in Sources */,
 				07812788282A54A600936E99 /* Typealiases.swift in Sources */,

@@ -1,25 +1,27 @@
 //
-//  DashboardViewController.swift
+//  ProfileViewController.swift
 //  Kinder
 //
-//  Created by 508853 on 14.05.2022.
+//  Created by Emircan Aydın on 24.05.2022.
 //
 
 import UIKit
 import DefaultNetworkOperationPackage
 
-class DashboardViewController: ViewController {
+class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var nameSurname: UILabel!
-    @IBOutlet weak var userClass: UILabel!
+    @IBOutlet weak var nameSurname: UITextField!
+    @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var schoolNumber: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        getUserInfo()
+        
+        getCurrentUser()
     }
     
-    func getUserInfo() {
+    func getCurrentUser() {
         do {
             var urlRequest = try ApiServiceProvider<String>(method: .get, baseUrl: "https://spring-kindergarden.herokuapp.com/user/currentUser").returnUrlRequest()
             let token = UserDefaultsManager().getValue(key: "accessToken") as! String
@@ -27,18 +29,18 @@ class DashboardViewController: ViewController {
             APIManager.shared.executeRequest(urlRequest: urlRequest, completion: apiCallHandler)
         } catch _ { }
     }
-
+    
     private lazy var apiCallHandler: CurrentUserBlock = { [weak self] result in
         switch result {
         case .success(let response):
             DispatchQueue.main.async {
                 self?.nameSurname.text = "\(response.firstName) \(response.lastName)"
+                self?.phone.text = "\(response.phone)"
+                self?.email.text = "\(response.email)"
+                self?.schoolNumber.text = "\(response.schoolNumber)"
             }
-            UserDefaultsManager().saveValue(key: "schoolNumber", value: response.schoolNumber)
         case .failure(let error):
-            DispatchQueue.main.async {
-                self?.navigationController?.popToRootViewController(animated: false)
-            }
+            print("GET CURRENT USER FAILURE")
+            self?.dismiss(animated: true)
         }
-    }
-}
+    }}

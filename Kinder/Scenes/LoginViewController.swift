@@ -16,7 +16,14 @@ class LoginViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkAccessToken()
         initViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.usernameTextField.text = ""
+        self.passwordTextField.text = ""
     }
     
     private func initViews() {
@@ -26,6 +33,14 @@ class LoginViewController: ViewController {
     private func prepareButton() {
         loginButton.layer.cornerRadius = 6
         loginButton.backgroundColor = UIColor(named: "kinderRed")
+    }
+    
+    private func checkAccessToken() {
+        let accessToken = (UserDefaultsManager().getValue(key: "accessToken") as? String)
+        
+        if accessToken != nil && accessToken != "" {
+            goToDashboard()
+        }
     }
     
     private func login() {
@@ -57,14 +72,18 @@ class LoginViewController: ViewController {
         case .success(let response):
             UserDefaultsManager().saveValue(key: "accessToken", value: response.accessToken)
             DispatchQueue.main.async {
-                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "tabBar")
-                self?.navigationController?.setNavigationBarHidden(true, animated: false)
-                self?.navigationController?.pushViewController(vc, animated: true)
+                self?.goToDashboard()
             }
         case .failure(let error):
             print("\(error)")
         }
+    }
+    
+    private func goToDashboard() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "tabBar")
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func showErrorAlertButton(message: String) {

@@ -9,24 +9,17 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        guard ((UserDefaultsManager().getValue(key: "accessToken") as? String) != nil) else {
-            let viewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "Login")
-            window?.rootViewController = UINavigationController(rootViewController: viewController)
-            window?.makeKeyAndVisible()
-            return true
-        }
-        
-        let viewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "tabBar")
+        let viewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "Login")
         window?.rootViewController = UINavigationController(rootViewController: viewController)
         window?.makeKeyAndVisible()
+        
         return true
     }
 }
